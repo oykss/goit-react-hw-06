@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useDebouncedCallback } from 'use-debounce';
 import { setStatusFilter } from '../../redux/filtersSlice';
+import css from './SearchBox.module.css';
 
 export default function SearchBox() {
   const dispatch = useDispatch();
@@ -20,12 +21,13 @@ export default function SearchBox() {
   };
 
   return (
-    <label>
+    <label className={css.wrap}>
       <input
         type="text"
         name="search"
         value={searchTerm}
         onChange={handleChange}
+        placeholder="Find name"
       />
     </label>
   );
