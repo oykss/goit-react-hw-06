@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useDebouncedCallback } from 'use-debounce';
-import { setStatusFilter } from '../../redux/filtersSlice';
+import { changeFilter } from '../../redux/filtersSlice';
 import css from './SearchBox.module.css';
 
 export default function SearchBox() {
@@ -11,7 +11,7 @@ export default function SearchBox() {
   const [searchTerm, setSearchTerm] = useState(status);
 
   const handleSearch = useDebouncedCallback(param => {
-    dispatch(setStatusFilter(param));
+    dispatch(changeFilter(param));
   }, 300);
 
   const handleChange = e => {
